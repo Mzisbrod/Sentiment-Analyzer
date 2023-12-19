@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sentiment Analysis Tool</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #fce4ec; /* Light pink background */
+            color: #333;
+            text-align: center;
+            padding: 20px;
+        }
+
+        textarea {
+            border: 2px solid #f48fb1; /* Pink border */
+            border-radius: 10px;
+            padding: 10px;
+            width: 300px;
+            height: 100px;
+            margin-top: 20px;
+        }
+
+        input[type=submit] {
+            background-color: #f06292; /* Brighter pink */
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        input[type=submit]:hover {
+            background-color: #e91e63; /* Even brighter pink */
+        }
+
+        .results {
+            margin-top: 20px;
+            padding: 20px;
+        }
+
+        .results p {
+            font-size: 18px;
+            color: #d81b60; /* Dark pink */
+        }
+    </style>
+</head>
+<body>
+    <meta charset="UTF-8">
+    <h1>Sentiment Analysis Tool</h1>
+    <p>Enter your text in the box below and click 'Analyze' to see the sentiment of the text</p>
+    <form method="post">
+        <textarea name="text" rows="4" cols="50" placeholder="Enter your text here...">{{ text }}</textarea>
+        <br>
+        <input type="submit" value="Analyze">
+    </form>
+    {% if polarity is not none %}
+        <div class="results">
+            <h2>Results</h2>
+            <p>Polarity: {{ polarity }}</p>
+            <p>Subjectivity: {{ subjectivity }}</p>
+        </div>
+    {% endif %}
+</body>
+</html>
